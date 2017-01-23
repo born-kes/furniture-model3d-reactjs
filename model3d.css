@@ -1,0 +1,14 @@
+#new_element{
+    width: 60px;
+    height: 20px;
+    content: "dodaj Element";
+    background-color: #0000b3;
+    border-radius: 30%;
+}
+#new_element:before{
+    /*width: auto;*/
+    content: " Dodaj Element ";
+    font-size: 8px;
+    color: wheat;
+    margin-left: 4px;
+}
