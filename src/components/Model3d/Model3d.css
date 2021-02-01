@@ -1,0 +1,90 @@
+#view_model {
+    --tx: 0; /* translation x - right */
+    --ty: 0; /* translation y - down */
+    --tz: 0; /* translation z - front */
+    --furniture--x: 400px;
+    --furniture--y: 800px;
+    --furniture--z: 200px;
+    --size-el: 9px
+}
+
+#model3d,
+.furniture,
+.FigureBox
+{
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-origin: center;
+    -webkit-transform-origin: center;
+}
+#model3d {
+    position: relative;
+    height: 550px;
+    /*width: 800px;*/
+    outline: 1px solid green;
+    transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+}
+.model3d-content{
+    position: relative;
+    left: 50%;
+    top: 25%;
+}
+.furniture {
+
+    transform: scale3D(0.4,0.4,0.4) translate3d(calc(var(--furniture--x)*-1), -50%, calc(var(--furniture--z)*-1));
+    -webkit-transform: scale3D(0.4,0.4,0.4) translate3d(calc(var(--furniture--x)*-1), -50%, calc(var(--furniture--z)*-1));
+
+    /* outline: 1px solid blue; */
+}
+.formatka {
+    position: absolute;
+    outline: 1px solid blue;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 0 0;
+    transform-style: preserve-3d;
+    transform-origin: 0 0;
+    pointer-events: initial;
+    /* backface-visibility: hidden; */
+}
+.hidden{
+    display: none;
+}
+
+.right {
+    --tx: 50%;
+    right: 0;
+}
+.left {
+    --tx: -50%;
+    left:0;
+}
+.top {
+    --ty: -50%;
+    top:0;
+}
+.bottom {
+    --ty: 50%;
+    bottom:0;
+}
+.sidewall {
+    width: var(--furniture--z);
+    height: var(--furniture--y);
+    transform: translate3d(var(--tx), 0, var(--tz) ) rotateX(0deg) rotateY(90deg);
+}
+.shelves,
+.capture {
+    width: var(--furniture--x);
+    height: var(--furniture--z);
+    transform: translate3d(0, var(--ty), var(--tz) ) rotateX(90deg) rotateY(0deg);
+}
+.shelves {
+    --tralation-y: 50%;
+}
+
+/* TEST TODO Delete this class */
+.furniture {
+    width: var(--furniture--x);
+    height: var(--furniture--y);
+    /*background-color: red;*/
+}
