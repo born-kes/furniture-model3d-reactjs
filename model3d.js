@@ -1,4 +1,13 @@
 /* global $ */
+let furnite = {
+    'width': 500,
+    'height': 516,
+    'depth':300,
+    'boardThickness': 18,
+    'regiments': 3,
+    'regimentsHeight': 20,
+    'regimentsMarginFront': 0,
+};
 var width_mebel = 500,
     height_mebel=516,
     depth_mebel=300,
@@ -8,6 +17,20 @@ var width_mebel = 500,
     wysunięcie_polki = 20;
     margines_przedni_polki = 0;
 var camera;
+
+const gID = (id)=> document.getElementById(id);
+const setObserver = (data, key, id) => {
+ const el = gID(id);
+         el.value = data[key];
+setInterval(observer, 1000, data, key, el);
+};
+
+const observer = (data, key, el) => {
+    const val = el.value;
+    if(data[key] !== val){
+        data[key] = val;
+    }
+};
 
 function przeliczModel(){
     boki();
@@ -401,3 +424,9 @@ function generatorPolek(){
     });
     polki();
 }
+
+document.addEventListener("DOMContentLoaded",function(){
+    setObserver(furnite, 'width', 'szerokosc')
+    setObserver( furnite, 'height', 'wysokosc');
+    setObserver( furnite, 'depth', 'depth');
+});
