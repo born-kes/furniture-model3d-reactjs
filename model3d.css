@@ -7,14 +7,38 @@ figure, .formatka{
     background-color: #ddd;
     /*border: 1px solid;*/
 }
-.formatka.front.one[data-open=false] {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -ms-transform: rotateX(0deg) rotateY(0deg);
-    -o-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg);
+
+.formatka.front{
+    --tx: 0px;
+    --ty: 0px;
+    --tz: 0px;
+    --degx: 0deg;
+    --degy: 0deg;
 }
-.formatka.front.one[data-open=true],
+
+#grupa-drzwi>.formatka.front{
+    -webkit-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    -moz-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    -ms-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    -o-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+}
+
+.formatka.front.top[data-open=true] {
+    --degx: 90deg;
+}
+
+.formatka.front.one[data-open=true] {
+    --degy: -90deg;
+}
+
+.formatka.front.two[data-open=false] {
+    --degy: -180deg;
+}
+.formatka.front.two[data-open=true] {
+    --degy: -90deg;
+}
+
 #grupa-polka, #grupa-wieniec {
     -webkit-transform: rotateX(90deg) rotateY(0deg);
     -moz-transform: rotateX(90deg) rotateY(0deg);
@@ -22,20 +46,7 @@ figure, .formatka{
     -o-transform: rotateX(90deg) rotateY(0deg);
     transform: rotateX(90deg) rotateY(0deg);
 }
-.formatka.front.two[data-open=true] {
-    -webkit-transform: rotateX(0deg) rotateY(-90deg);
-    -moz-transform: rotateX(0deg) rotateY(-90deg);
-    -ms-transform: rotateX(0deg) rotateY(-90deg);
-    -o-transform: rotateX(0deg) rotateY(-90deg);
-    transform: rotateX(0deg) rotateY(-90deg);
-}
-.formatka.front.two[data-open=false] {
-    -webkit-transform: rotateX(0deg) rotateY(-180deg);
-    -moz-transform: rotateX(0deg) rotateY(-180deg);
-    -ms-transform: rotateX(0deg) rotateY(-180deg);
-    -o-transform: rotateX(0deg) rotateY(-180deg);
-    transform: rotateX(0deg) rotateY(-180deg);
-}
+
 /*##########################*/
 
 figure {

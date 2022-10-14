@@ -11,6 +11,7 @@ const furnite = {
 let camera = {};
 
 const gID = (id)=> document.getElementById(id);
+const gCN = (className)=> document.getElementsByClassName(className);
 const setObserver = (data, key, id) => {
  const el = gID(id);
        el.value = data[key];
@@ -34,6 +35,7 @@ function przeliczModel(){
     polki();
     wieniec();
     mouse();
+    door();
 }
 
 $( function() {
@@ -70,14 +72,12 @@ $( function() {
                 $('.f_front .front').css('display', 'none');
                 break;
             case '1':
-                console.log('width_mebel',(width_mebel));
                 $('.f_front .front.one').css({'display':'block', 'width': '800px' });
                 $('.f_front .front.two').css('display', 'none');
                 break;
             case '2':
-                console.log('width_max2','-'+(width_mebel/2) + 'px');
-                $('.f_front .front.one').css({'display':'block', 'width':(width_mebel/2) + 'px' });
-                $('.f_front .front.two').css({'display': 'block', 'right':'-'+(width_mebel/2) + 'px'});
+                $('.f_front .front.one').css({'display':'block', 'width':(furnite.width/2) + 'px' });
+                $('.f_front .front.two').css({'display': 'block', 'right':'-'+(furnite.width/2) + 'px'});
                 break;
         }
     });
@@ -91,7 +91,6 @@ $( function() {
         }
     });
     $('input').bind("click", function(e){
-        //console.log('change', e, $(this) );
 
         switch ($(this).attr('id')){
             case 'plecy':
@@ -108,17 +107,13 @@ $( function() {
                     $('#drzwi_op').toggle();
 		//			$('#formatka-front-L').css({'display':'block', 'width': '800px' });
             case 'optionDrzwiOne':
-			new_element_size($('#formatka-front-L'), furnite.width + furnite.boardThickness *2, furnite.height + furnite.boardThickness *2, furnite.boardThickness )
-				$('#formatka-front-L').attr('data-open','true');
-				$('#formatka-front-P').attr('data-open','false').hide();
+				$('#formatka-front-L, #formatka-front-P').attr('data-open','true').hide();
+				$('#formatka-front-T').attr('data-open','false').show();
                 break;
             case 'optionDrzwiTwo':
-				$('#formatka-front-L').attr('data-open','false')
-				.css({ 'width':(width_mebel/2) + furnite.boardThickness});
-				$('#formatka-front-P').attr('data-open','false')
-				.show()
-				.css({'display': 'block', 'right':'-'+(width_mebel/2 + furnite.boardThickness) + 'px', 'width':(width_mebel/2)});
-                break;
+                $('#formatka-front-L, #formatka-front-P').show();
+                 $('#formatka-front-T').hide();
+                 break;
 			case undefined:
 				alert('undefined');
         }
@@ -214,6 +209,17 @@ function wieniec()
         new_element_size( $(this), furnite.width +( furnite.boardThickness * 2 ), furnite.depth);
 
     });
+}
+
+function door() {
+   let el = [...gCN('formatka front')],
+           x = furnite.width + (furnite.boardThickness * 2),
+           y = furnite.height + furnite.boardThickness;
+
+        el[1].style.setProperty('--tx', x + 'px');
+    new_element_size(el[0], x/2, y);
+    new_element_size(el[1], x/2, y);
+    new_element_size(el[2], x, y);
 }
 
 function mouse() {
