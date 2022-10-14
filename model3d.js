@@ -1,42 +1,35 @@
 /* global $ */
-let furnite = {
+const furnite = {
     'width': 500,
     'height': 516,
     'depth':300,
     'boardThickness': 18,
     'regiments': 3,
-    'regimentsHeight': 20,
-    'regimentsMarginFront': 0,
+    'regimentsMarginFront': 20,
+    'regimentsPaddingFront': 0,
 };
-var width_mebel = 500,
-    height_mebel=516,
-    depth_mebel=300,
-
-    grubosc_plyty = 18,
-    ilosc_polek = 3;
-    wysunięcie_polki = 20;
-    margines_przedni_polki = 0;
-var camera;
+let camera = {};
 
 const gID = (id)=> document.getElementById(id);
 const setObserver = (data, key, id) => {
  const el = gID(id);
-         el.value = data[key];
+       el.value = data[key];
 setInterval(observer, 1000, data, key, el);
 };
 
 const observer = (data, key, el) => {
-    const val = el.value;
+    const val = parseInt(el.value);
     if(data[key] !== val){
         data[key] = val;
+        przeliczModel();
     }
 };
 
 function przeliczModel(){
     boki();
-    new_element_size($('#mebel, #formatka-plecy, #formatka-front-L, #formatka-front-P'), width_mebel, height_mebel);
-    //new_element_size($('#formatka-bok-l,#formatka-bok-p'), depth_mebel, height_mebel);
-    //new_element_size($('#formatka-wieniec-dolny,#formatka-wieniec-gorny'), width_mebel, depth_mebel-20);
+    new_element_size($('#mebel, #formatka-plecy, #formatka-front-L, #formatka-front-P'), furnite.width, furnite.height);
+//    new_element_size($('#formatka-bok-l,#formatka-bok-p'), furnite.depth, furnite.height);
+//    new_element_size($('#formatka-wieniec-dolny,#formatka-wieniec-gorny'), furnite.width, furnite.depth-20);
 
     polki();
     wieniec();
@@ -115,16 +108,16 @@ $( function() {
                     $('#drzwi_op').toggle();
 		//			$('#formatka-front-L').css({'display':'block', 'width': '800px' });
             case 'optionDrzwiOne':
-			new_element_size($('#formatka-front-L'), width_mebel+grubosc_plyty*2, height_mebel+grubosc_plyty*2, grubosc_plyty)
+			new_element_size($('#formatka-front-L'), furnite.width + furnite.boardThickness *2, furnite.height + furnite.boardThickness *2, furnite.boardThickness )
 				$('#formatka-front-L').attr('data-open','true');
 				$('#formatka-front-P').attr('data-open','false').hide();
                 break;
             case 'optionDrzwiTwo':
 				$('#formatka-front-L').attr('data-open','false')
-				.css({ 'width':(width_mebel/2)+grubosc_plyty});
+				.css({ 'width':(width_mebel/2) + furnite.boardThickness});
 				$('#formatka-front-P').attr('data-open','false')
 				.show()
-				.css({'display': 'block', 'right':'-'+(width_mebel/2+grubosc_plyty) + 'px', 'width':(width_mebel/2)});
+				.css({'display': 'block', 'right':'-'+(width_mebel/2 + furnite.boardThickness) + 'px', 'width':(width_mebel/2)});
                 break;
 			case undefined:
 				alert('undefined');
@@ -181,28 +174,28 @@ function model3d(x, y, inne)
 function boki()
 {
     $('#formatka-bok-l, #formatka-bok-p').each(function(nr){
-        console.log('go',nr ,height_mebel, this);
-var x = grubosc_plyty/2
-    y = grubosc_plyty/2,
-    z = depth_mebel;
+        console.log('go',nr ,furnite.height, this);
+var x = furnite.boardThickness /2
+    y = furnite.boardThickness /2,
+    z = furnite.depth;
         // przesunięcie
         if(nr!==0){
-            x += height_mebel;
+            x += furnite.width + furnite.boardThickness;
         }
         new_element_transform($(this), x, y, z, 'rotateX(0deg) rotateY(90deg)');
-        new_element_size($(this), z, height_mebel);
-        console.log('go1',height_mebel, this);
+        new_element_size($(this), z, furnite.height);
+
     });
 }
 function polki()
 {
-    var odstemp = height_mebel / (ilosc_polek+1);
+    var odstemp = furnite.height / (furnite.regiments + 1);
     $('.polka').each(function (nr) {
 
         console.log('f-cja polki', nr, this, odstemp );
         var z = odstemp * -(nr+1);
-        new_element_transform($(this), grubosc_plyty, wysunięcie_polki, z, '');
-        new_element_size($('.polka'), width_mebel, depth_mebel-wysunięcie_polki - margines_przedni_polki );
+        new_element_transform($(this), furnite.boardThickness, 0, z, '');
+        new_element_size($('.polka'), furnite.width, furnite.depth - furnite.regimentsMarginFront - furnite.regimentsPaddingFront );
 
     });
 }
@@ -215,10 +208,10 @@ function wieniec()
         if(nr==0){
             y = 0
         }else{
-            y = height_mebel+grubosc_plyty;
+            y = furnite.height + furnite.boardThickness;
         }
         new_element_transform($(this), 0, 0, -y, '');
-        new_element_size( $(this), width_mebel+(grubosc_plyty*2), depth_mebel);
+        new_element_size( $(this), furnite.width +( furnite.boardThickness * 2 ), furnite.depth);
 
     });
 }
@@ -410,14 +403,14 @@ function camera_(el) {
 
 function generatorPolek(){
 
-    ilosc_polek = parseInt( $('#optionPolkiSzt').val() ) || 0;
+    furnite.regiments = parseInt( $('#optionPolkiSzt').val() ) || 0;
 
-    //if( ilosc_polek === $('#grupa-polka div').length ) TODO dodawanie elementów
+    //if( furnite.regiments === $('#grupa-polka div').length ) TODO dodawanie elementów
     //    return;
 
     //console.log( $('#grupa-polka div'), $('#grupa-polka div').length );
     $('#grupa-polka div').each(function(nr){
-        if(nr+1 > ilosc_polek)
+        if(nr+1 > furnite.regiments)
             $(this).hide();
         else
             $(this).show();
