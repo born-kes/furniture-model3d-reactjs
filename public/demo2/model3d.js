@@ -2,7 +2,7 @@
 const furnite = {
     'width': 500,
     'height': 516,
-    'depth':300,
+    'depth': 300,
     'boardThickness': 18,
     'regiments': 3,
     'regimentsMarginFront': 20,
@@ -10,23 +10,23 @@ const furnite = {
 };
 let camera = {};
 
-const gID = (id)=> document.getElementById(id);
-const gCN = (className)=> document.getElementsByClassName(className);
+const gID = (id) => document.getElementById(id);
+const gCN = (className) => document.getElementsByClassName(className);
 const setObserver = (data, key, id) => {
- const el = gID(id);
-       el.value = data[key];
-setInterval(observer, 1000, data, key, el);
+    const el = gID(id);
+    el.value = data[key];
+    setInterval(observer, 1000, data, key, el);
 };
 
 const observer = (data, key, el) => {
     const val = parseInt(el.value);
-    if(data[key] !== val){
+    if (data[key] !== val) {
         data[key] = val;
         przeliczModel();
     }
 };
 
-function przeliczModel(){
+function przeliczModel() {
     boki();
     new_element_size($('#mebel, #formatka-plecy, #formatka-front-L, #formatka-front-P'), furnite.width, furnite.height);
 //    new_element_size($('#formatka-bok-l,#formatka-bok-p'), furnite.depth, furnite.height);
@@ -38,10 +38,10 @@ function przeliczModel(){
     door();
 }
 
-$( function() {
+$(function () {
     camera = {
-        'el' : $('#view_model'),
-        'actiwe':false,
+        'el': $('#view_model'),
+        'actiwe': false,
 
         "modelX": -20,
         "modelY": -20,
@@ -51,8 +51,8 @@ $( function() {
         "startX": 0,
         "startY": 0,
         'cz': 0,
-        data:function(a,b){
-            console.log('carma: '+a,b, this[a]);
+        data: function (a, b) {
+            console.log('carma: ' + a, b, this[a]);
             if (typeof b !== 'undefined') {
                 this[a] = b;
             }
@@ -60,11 +60,12 @@ $( function() {
         }
     };
 
-    $( "button,td" ).click(function(a){
+    $("button,td").click(function (a) {
         camera_(this);
     });
 
-    $("input[type=radio][name=drzwi1]").click(function() {return;
+    $("input[type=radio][name=drzwi1]").click(function () {
+        return;
         var value = $(this).attr('data');
         console.log(value);
         switch (value) {
@@ -72,27 +73,36 @@ $( function() {
                 $('.f_front .front').css('display', 'none');
                 break;
             case '1':
-                $('.f_front .front.one').css({'display':'block', 'width': '800px' });
+                $('.f_front .front.one').css({
+                    'display': 'block',
+                    'width': '800px'
+                });
                 $('.f_front .front.two').css('display', 'none');
                 break;
             case '2':
-                $('.f_front .front.one').css({'display':'block', 'width':(furnite.width/2) + 'px' });
-                $('.f_front .front.two').css({'display': 'block', 'right':'-'+(furnite.width/2) + 'px'});
+                $('.f_front .front.one').css({
+                    'display': 'block',
+                    'width': (furnite.width / 2) + 'px'
+                });
+                $('.f_front .front.two').css({
+                    'display': 'block',
+                    'right': '-' + (furnite.width / 2) + 'px'
+                });
                 break;
         }
     });
-    $('.formatka.front').click(function(){
-        console.log( $(this), $(this).attr('data-open') );
+    $('.formatka.front').click(function () {
+        console.log($(this), $(this).attr('data-open'));
 
-        if( $(this).attr('data-open')==='true') {
-            $(this).attr('data-open','false')
-        }else {
-            $(this).attr('data-open','true')
+        if ($(this).attr('data-open') === 'true') {
+            $(this).attr('data-open', 'false')
+        } else {
+            $(this).attr('data-open', 'true')
         }
     });
-    $('input').bind("click", function(e){
+    $('input').bind("click", function (e) {
 
-        switch ($(this).attr('id')){
+        switch ($(this).attr('id')) {
             case 'plecy':
                 $('#formatka-plecy').toggle();
                 break;
@@ -103,28 +113,28 @@ $( function() {
                 generatorPolek();
                 break;
             case 'optionDrzwi':
-					$('#grupa-drzwi').show();
-                    $('#drzwi_op').toggle();
-		//			$('#formatka-front-L').css({'display':'block', 'width': '800px' });
+                $('#grupa-drzwi').show();
+                $('#drzwi_op').toggle();
+            //			$('#formatka-front-L').css({'display':'block', 'width': '800px' });
             case 'optionDrzwiOne':
-				$('#formatka-front-L, #formatka-front-P').attr('data-open','true').hide();
-				$('#formatka-front-T').attr('data-open','false').show();
+                $('#formatka-front-L, #formatka-front-P').attr('data-open', 'true').hide();
+                $('#formatka-front-T').attr('data-open', 'false').show();
                 break;
             case 'optionDrzwiTwo':
                 $('#formatka-front-L, #formatka-front-P').show();
-                 $('#formatka-front-T').hide();
-                 break;
-			case undefined:
-				alert('undefined');
+                $('#formatka-front-T').hide();
+                break;
+            case undefined:
+                alert('undefined');
         }
     });
 
 
     przeliczModel();
-} );
-function new_element(el)
-{
-    if($(el).is(':empty')) {
+});
+
+function new_element(el) {
+    if ($(el).is(':empty')) {
         var tag = $('<figure class="front"></figure>' +
             '<figure class="back"></figure>' +
             '<figure class="left"></figure>' +
@@ -135,46 +145,47 @@ function new_element(el)
         $(el).append(tag);
     }
 }
-function new_element_size(el, x, y, z)
-{
-    if($(el).is(':empty')) {  new_element(el); }
+
+function new_element_size(el, x, y, z) {
+    if ($(el).is(':empty')) {
+        new_element(el);
+    }
     $(el).css({
-        width: x+'px',
-        height: y+'px'
+        width: x + 'px',
+        height: y + 'px'
     });
 }
-function new_element_transform(el, x, y, z, inne)
-{
-    var value = 'translate3d('+x+'px, '+y+'px, '+z+'px)';
+
+function new_element_transform(el, x, y, z, inne) {
+    var value = 'translate3d(' + x + 'px, ' + y + 'px, ' + z + 'px)';
     console.log('new_element_transform', value);
     //noinspection JSValidateTypes
     if (!(typeof inne === undefined)) {
-    value += inne;
-}
-    $(el).css('transform',value);
+        value += inne;
+    }
+    $(el).css('transform', value);
 }
 
-function model3d(x, y, inne)
-{
+function model3d(x, y, inne) {
     var value = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg)';
     //console.log(value, $(this));
-    $( "#model3d" ).css({
-        '-webkit-transform' : value,
-        '-moz-transform'    : value,
-        '-ms-transform'     : value,
-        '-o-transform'      : value,
-        'transform'         : value
+    $("#model3d").css({
+        '-webkit-transform': value,
+        '-moz-transform': value,
+        '-ms-transform': value,
+        '-o-transform': value,
+        'transform': value
     });
 }
-function boki()
-{
-    $('#formatka-bok-l, #formatka-bok-p').each(function(nr){
-        console.log('go',nr ,furnite.height, this);
-var x = furnite.boardThickness /2
-    y = furnite.boardThickness /2,
-    z = furnite.depth;
+
+function boki() {
+    $('#formatka-bok-l, #formatka-bok-p').each(function (nr) {
+        console.log('go', nr, furnite.height, this);
+        var x = furnite.boardThickness / 2
+        y = furnite.boardThickness / 2,
+            z = furnite.depth;
         // przesunięcie
-        if(nr!==0){
+        if (nr !== 0) {
             x += furnite.width + furnite.boardThickness;
         }
         new_element_transform($(this), x, y, z, 'rotateX(0deg) rotateY(90deg)');
@@ -182,43 +193,43 @@ var x = furnite.boardThickness /2
 
     });
 }
-function polki()
-{
+
+function polki() {
     var odstemp = furnite.height / (furnite.regiments + 1);
     $('.polka').each(function (nr) {
 
-        console.log('f-cja polki', nr, this, odstemp );
-        var z = odstemp * -(nr+1);
+        console.log('f-cja polki', nr, this, odstemp);
+        var z = odstemp * -(nr + 1);
         new_element_transform($(this), furnite.boardThickness, 0, z, '');
-        new_element_size($('.polka'), furnite.width, furnite.depth - furnite.regimentsMarginFront - furnite.regimentsPaddingFront );
+        new_element_size($('.polka'), furnite.width, furnite.depth - furnite.regimentsMarginFront - furnite.regimentsPaddingFront);
 
     });
 }
-function wieniec()
-{
+
+function wieniec() {
     $('.wieniec').each(function (nr) {
         var y;
 
-        console.log('f-cja wieniec', nr, this );
-        if(nr==0){
+        console.log('f-cja wieniec', nr, this);
+        if (nr == 0) {
             y = 0
-        }else{
+        } else {
             y = furnite.height + furnite.boardThickness;
         }
         new_element_transform($(this), 0, 0, -y, '');
-        new_element_size( $(this), furnite.width +( furnite.boardThickness * 2 ), furnite.depth);
+        new_element_size($(this), furnite.width + (furnite.boardThickness * 2), furnite.depth);
     });
 }
 
 function door() {
-   let el = [...gCN('formatka front')],
-           x = furnite.width + (furnite.boardThickness * 2),
-           y = furnite.height + furnite.boardThickness;
+    let el = [...gCN('formatka front')],
+        x = furnite.width + (furnite.boardThickness * 2),
+        y = furnite.height + furnite.boardThickness;
 
-    new_element_transform( gID('grupa-drzwi'), 0, 0, furnite.depth, '');
-        el[1].style.setProperty('--tx', x + 'px');
-    new_element_size(el[0], x/2, y);
-    new_element_size(el[1], x/2, y);
+    new_element_transform(gID('grupa-drzwi'), 0, 0, furnite.depth, '');
+    el[1].style.setProperty('--tx', x + 'px');
+    new_element_size(el[0], x / 2, y);
+    new_element_size(el[1], x / 2, y);
     new_element_size(el[2], x, y);
 }
 
@@ -226,16 +237,16 @@ function mouse() {
 
 //############################### TODO przelicz 360
 
-    camera.el.mousedown(function(e) {
+    camera.el.mousedown(function (e) {
         e.preventDefault();
         camera.startX = camera.startY = 0;
         camera.actiwe = true;
         console.log('click on');
 
-        $(window).mouseup(function(e){
+        $(window).mouseup(function (e) {
 
             camera.startX = e.pageX;
-            camera.startY = e.pageY ;
+            camera.startY = e.pageY;
 
             camera.actiwe = false;
             console.log('click off');
@@ -243,20 +254,20 @@ function mouse() {
             $(window).unbind("mouseout");
         });
 
-        $(window).mousemove(function(e) {
-            if(camera.startX==0)
+        $(window).mousemove(function (e) {
+            if (camera.startX == 0)
                 camera.startX = (e.pageX);
-            if(camera.startY==0)
+            if (camera.startY == 0)
                 camera.startY = (e.pageY);
 
             //console.log( camera.actiwe, e.ctrlKey );
-            if(! camera.actiwe){
+            if (!camera.actiwe) {
                 return;
             }
 
-            camera.modelY += (camera.startX - e.pageX)/-3.4 ;
-            camera.modelX += (camera.startY - e.pageY)/4 ;
-                model3d(camera.modelX, camera.modelY);
+            camera.modelY += (camera.startX - e.pageX) / -3.4;
+            camera.modelX += (camera.startY - e.pageY) / 4;
+            model3d(camera.modelX, camera.modelY);
             camera.startX = (e.pageX);
             camera.startY = (e.pageY);
         });
@@ -264,11 +275,11 @@ function mouse() {
     });
 
 
-    camera.el.bind('mousewheel DOMMouseScroll', function(e){
-        if(e.originalEvent.wheelDelta /120 > 0 || event.originalEvent.detail < 120 /*IE9+*/) {
+    camera.el.bind('mousewheel DOMMouseScroll', function (e) {
+        if (e.originalEvent.wheelDelta / 120 > 0 || event.originalEvent.detail < 120 /*IE9+*/) {
             console.log('scrolling up ! ', e.originalEvent.wheelDelta);
         }
-        else{
+        else {
             console.log('scrolling down !', e.originalEvent.wheelDelta);
         }
     });
@@ -398,25 +409,24 @@ function camera_(el) {
     var rotateX = $(el).attr('rotateX'),
         rotateY = $(el).attr('rotateY');
 
-    if(rotateX==0 && rotateY==0)
-    {
+    if (rotateX == 0 && rotateY == 0) {
         camera.modelX = camera.modelY = 0;
     }
-    camera.modelX += rotateX*1;
-    camera.modelY += rotateY*1;
+    camera.modelX += rotateX * 1;
+    camera.modelY += rotateY * 1;
     model3d(camera.modelX, camera.modelY);
 }
 
-function generatorPolek(){
+function generatorPolek() {
 
-    furnite.regiments = parseInt( $('#optionPolkiSzt').val() ) || 0;
+    furnite.regiments = parseInt($('#optionPolkiSzt').val()) || 0;
 
     //if( furnite.regiments === $('#grupa-polka div').length ) TODO dodawanie elementów
     //    return;
 
     //console.log( $('#grupa-polka div'), $('#grupa-polka div').length );
-    $('#grupa-polka div').each(function(nr){
-        if(nr+1 > furnite.regiments)
+    $('#grupa-polka div').each(function (nr) {
+        if (nr + 1 > furnite.regiments)
             $(this).hide();
         else
             $(this).show();
@@ -424,8 +434,8 @@ function generatorPolek(){
     polki();
 }
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
     setObserver(furnite, 'width', 'szerokosc')
-    setObserver( furnite, 'height', 'wysokosc');
-    setObserver( furnite, 'depth', 'depth');
+    setObserver(furnite, 'height', 'wysokosc');
+    setObserver(furnite, 'depth', 'depth');
 });
