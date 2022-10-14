@@ -18,5 +18,4 @@ This is 3d model of furniture DEMO version 2
 
 #bug
 - off door
-- changing the dimensions of the model 
 

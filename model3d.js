@@ -207,7 +207,6 @@ function wieniec()
         }
         new_element_transform($(this), 0, 0, -y, '');
         new_element_size( $(this), furnite.width +( furnite.boardThickness * 2 ), furnite.depth);
-
     });
 }
 
@@ -216,6 +215,7 @@ function door() {
            x = furnite.width + (furnite.boardThickness * 2),
            y = furnite.height + furnite.boardThickness;
 
+    new_element_transform( gID('grupa-drzwi'), 0, 0, furnite.depth, '');
         el[1].style.setProperty('--tx', x + 'px');
     new_element_size(el[0], x/2, y);
     new_element_size(el[1], x/2, y);
