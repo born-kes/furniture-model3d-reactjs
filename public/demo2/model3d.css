@@ -1,0 +1,367 @@
+
+div {
+    transition: all 2s ease-in-out;
+}
+
+figure, .formatka {
+    /*background-image: url("../download.png");*/
+    background-color: #ddd;
+    /*border: 1px solid;*/
+}
+
+.formatka.front {
+    --tx: 0px;
+    --ty: 0px;
+    --tz: 0px;
+    --degx: 0deg;
+    --degy: 0deg;
+}
+
+#grupa-drzwi > .formatka.front {
+    -webkit-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    -moz-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    -ms-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    -o-transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+    transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--degx)) rotateY(var(--degy));
+}
+
+.formatka.front.top[data-open=true] {
+    --degx: 90deg;
+}
+
+.formatka.front.one[data-open=true] {
+    --degy: -90deg;
+}
+
+.formatka.front.two[data-open=false] {
+    --degy: -180deg;
+}
+
+.formatka.front.two[data-open=true] {
+    --degy: -90deg;
+}
+
+#grupa-polka, #grupa-wieniec {
+    -webkit-transform: rotateX(90deg) rotateY(0deg);
+    -moz-transform: rotateX(90deg) rotateY(0deg);
+    -ms-transform: rotateX(90deg) rotateY(0deg);
+    -o-transform: rotateX(90deg) rotateY(0deg);
+    transform: rotateX(90deg) rotateY(0deg);
+}
+
+/*##########################*/
+
+figure {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+#view_model {
+    height: 650px;
+    perspective: 1200px;
+    position: relative;
+    transform-style: preserve-3d;
+    width: 800px;
+}
+
+#view_model {
+    -webkit-perspective: 1200px;
+    -webkit-perspective-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    perspective: 1200px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 800px;
+    height: 650px;
+    overflow: hidden;
+    -webkit-transition: -webkit-perspective 2s linear;
+}
+
+#model3d {
+    position: absolute;
+    margin: 0;
+    height: 550px;
+    width: 800px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    outline: 1px solid green;
+}
+
+#model3d .bmeb .sh, #model3d .mebel .sh {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;
+}
+
+#model3d .bmeb, #model3d .mebel {
+    position: absolute;
+    -webkit-transform: scale3D(0.4, 0.4, 0.4) translate3d(-200px, -100px, -250px);
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: bottom left;
+    transform: scale3D(0.4, 0.4, 0.4) translate3d(-200px, -100px, -250px);
+    transform-style: preserve-3d;
+    transform-origin: bottom left;
+    /* outline: 1px solid blue; */
+    bottom: 0px;
+    left: 50%;
+}
+
+#model3d:not(.noanim) .bmeb.ready, #model3d:not(.noanim) .mebel.ready {
+    transition: transform 0.2s linear 0s;
+}
+
+#model3d .bmeb,
+#model3d .mebel {
+    bottom: initial;
+    top: 0;
+    transform-origin: left top 0;
+    -webkit-transform-origin: top left;
+}
+
+#model3d .bmeb,
+#model3d .mebel {
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    transform: scale3d(0.4, 0.4, 0.4) translate3d(-200px, -100px, -250px);
+    /*transform-origin: left bottom 0;*/
+    transform-style: preserve-3d;
+}
+
+#model3d .mebel .sh2::after {
+    content: '';
+    width: calc(100% - 120px);
+    height: calc(100% - 190px);
+    position: absolute;
+    background: #cccccc;
+    right: 70px;
+    bottom: 120px;
+    box-shadow: 0px 0px 50px 20px #ccc;
+    border-radius: 30px;
+}
+
+#model3d .formatka {
+    position: absolute;
+    outline: 1px solid blue;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 0 0;
+    transform-style: preserve-3d;
+    transform-origin: 0 0;
+    /*background-color: #fff;*/
+    background-repeat: repeat;
+    pointer-events: initial;
+    background-size: 900px 900px;
+    /* backface-visibility: hidden; */
+}
+
+#model3d .mebel .sh2 {
+    background: #000;
+    -webkit-transform: rotateX(0deg) translateZ(-6px) translateX(21px) translateY(25px);
+    transform: rotateX(0deg) translateZ(-6px) translateX(21px) translateY(25px);
+    background: #000;
+    box-shadow: 0px 0px 20px 26px #000;
+    opacity: 0.20;
+    border-radius: 40px;
+    backface-visibility: hidden;
+    top: 0;
+}
+
+#model3d .mebel .sh2 {
+    -webkit-transform: rotateX(0deg) translateZ(-7px) translateX(40px) translateY(55px);
+    transform: rotateX(0deg) translateZ(-7px) translateX(40px) translateY(50px);
+    box-shadow: 0px 0px 50px 20px #000;
+    opacity: 0.15;
+    border-radius: 50px 50px 50px 100px;
+}
+
+#model3d .bmeb .sh1, #model3d .mebel .sh1 {
+    /* background: radial-gradient(farthest-side at top, #777777, white); */
+    -webkit-transform: translateZ(46px) translateX(31px) translateY(100px) rotateX(-90deg) rotateY(180deg);
+    transform: translateZ(46px) translateX(31px) translateY(100px) rotateX(-90deg) rotateY(180deg);
+    background: #000;
+    box-shadow: 0px 0px 30px 20px #000;
+    opacity: 0.25;
+    border-radius: 50px;
+    transform-origin: 50% 100%;
+    backface-visibility: hidden;
+}
+
+#model3d .mebel .f_front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#model3d .formatka figure {
+    position: absolute;
+    /* outline: 1px dashed red; */
+    background: inherit;
+    /* opacity: 0.8; */
+    box-shadow: inset 0px 0px 200px 0px rgba(0, 0, 0, 0.3);
+    backface-visibility: hidden;
+    /* -webkit-backface-visibility: visible; */
+    -moz-outline: 1px solid transparent;
+}
+
+#model3d .formatka figure.front {
+    -webkit-transform: translateZ(9px);
+    -webkit-transform-style: preserve-3d;
+    transform: translateZ(9px);
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+}
+
+#model3d .formatka figure.back {
+    -webkit-transform: translateZ(-9px) rotateY(180deg);
+    transform: translateZ(-9px) rotateY(180deg);
+    width: 100%;
+    height: 100%;
+}
+
+#model3d .formatka figure > .s {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+}
+
+#model3d .formatka figure.left {
+    -webkit-transform: translateX(-9px) rotateY(-90deg);
+    transform: translateX(-9px) rotateY(-90deg);
+    left: 0;
+    width: 18px;
+    height: 100%;
+}
+
+#model3d .formatka.lt-left figure.left {
+    box-shadow: inset 0px 0px 200px 0px rgba(0, 0, 0, 0.1);
+}
+
+#model3d .formatka.lt-bottom.no-left figure.left,
+#model3d .formatka.lt-top.no-left figure.left,
+#model3d .formatka.lt-right.no-left figure.left,
+#model3d .formatka.lt-left.no-left figure.left,
+#model3d .formatka.lt-front.no-left figure.left,
+#model3d .formatka.lt-back.no-left figure.left,
+#model3d .formatka.lt-bottom.no-right figure.right,
+#model3d .formatka.lt-top.no-right figure.right,
+#model3d .formatka.lt-right.no-right figure.right,
+#model3d .formatka.lt-left.no-right figure.right,
+#model3d .formatka.lt-front.no-right figure.right,
+#model3d .formatka.lt-back.no-right figure.right {
+    /*background: url(brzeg_pio_s.jpg) repeat;*/
+}
+
+#model3d .formatka.lt-bottom.no-bottom figure.bottom,
+#model3d .formatka.lt-top.no-bottom figure.bottom,
+#model3d .formatka.lt-right.no-bottom figure.bottom,
+#model3d .formatka.lt-left.no-bottom figure.bottom,
+#model3d .formatka.lt-front.no-bottom figure.bottom,
+#model3d .formatka.lt-back.no-bottom figure.bottom,
+#model3d .formatka.lt-bottom.no-top figure,
+#model3d .formatka.lt-top.no-top figure,
+#model3d .formatka.lt-right.no-top figure,
+#model3d .formatka.lt-left.no-top figure,
+#model3d .formatka.lt-front.no-top figure,
+#model3d .formatka.lt-back.no-top figure,
+#model3d .formatka figure {
+    /*background: url(/gfx/konfigurator/tekstury/brzeg_poz_s.jpg) repeat;*/
+    background-color: #dddddd;
+    box-shadow: inset 5px 5px 20px #182019;
+}
+
+#model3d .formatka figure.right {
+    -webkit-transform: translateX(9px) rotateY(90deg);
+    transform: translateX(9px) rotateY(90deg);
+    right: 0;
+    width: 18px;
+    height: 100%;
+}
+
+#model3d .formatka figure.bottom {
+    bottom: 0;
+    -webkit-transform: rotateX(-90deg) translateZ(9px) rotate(180deg);
+    transform: rotateX(-90deg) translateZ(9px) rotate(180deg);
+    height: 18px;
+    width: 100%;
+}
+
+#model3d .formatka figure {
+    -webkit-transform: translateY(-9px) rotateX(90deg);
+    transform: translateY(-9px) rotateX(90deg);
+    width: 100%;
+    height: 18px;
+}
+
+#model3d .formatka.lt-left figure {
+    box-shadow: none;
+}
+
+#model3d.optimize div.formatka[id^="formatka-wieniec"].no-left figure.left {
+    display: none;
+}
+
+#model3d .ind {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: 0 0 0;
+    transform-style: preserve-3d;
+    transform-origin: 0 0 0;
+    /* pointer-events: none; */
+    display: none;
+}
+
+#model3d .ind.szerokosc {
+    -webkit-transform-origin: 0 100% 0;
+    transform-origin: 0 100% 0;
+}
+
+#model3d .formatka.lt-bottom figure.front {
+    box-shadow: inset 20px 20px 200px 0px rgba(0, 0, 0, 0.3);
+}
+
+table td {
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+}
+
+#grupa-polka, #grupa-wieniec {
+    transform-style: preserve-3d;
+}
+
+#formatka-bok-p figure.right,
+#formatka-bok-l figure.right,
+#grupa-polka figure.top,
+#grupa-polka figure.right,
+#grupa-polka figure.left {
+    display: none;
+}
+
+#formatka-plecy {
+    background-color: #7a4114;
+}
+
+#project {
+    position: absolute;
+    top: 0;
+}
+
+#view_model {
+    margin-left: auto;
+    margin-right: auto;
+    top: 50px;
+}
