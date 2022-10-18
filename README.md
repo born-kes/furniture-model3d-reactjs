@@ -1,10 +1,10 @@
 # Furnite Model 3D
 
 [v-css&js]: https://born-kes.github.io/furniture-model3d-reactjs/demo2
-[v-css&js]: https://born-kes.github.io/furniture-model3d-reactjs/
+[v-react]: https://born-kes.github.io/furniture-model3d-reactjs/
 
-- Version CSS & JS => [Demo][v-css&js]
-- Version React.js
+- Version CSS & JS => [Live Demo][v-css&js]
+- Version React.js => [Live Demo][v-react]
 
 ## Get Started With the Code
 

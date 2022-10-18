@@ -12,20 +12,20 @@ figure,
   min-height: 1px;
 }
 figure.up {
-  /* transform: translate3d(0, 0, calc(var(--size-el) * 0.5)); */
+  transform: translate3d(0, 0, calc(var(--size-el) * 0.5));
 }
 figure.down {
-  /* transform: translate3d(0, 0, calc(var(--size-el) * -0.5)); */
+  transform: translate3d(0, 0, calc(var(--size-el) * -0.5));
 }
 figure.left,
 figure.right {
-  /* width: var(--size-el); */
-  /* transform: translate3d(var(--tx), 0, 0) rotateY(90deg); */
+  width: var(--size-el);
+  transform: translate3d(var(--tx), 0, 0) rotateY(90deg);
 }
 figure.top,
 figure.bottom {
   height: var(--size-el);
-  /* transform: translate3d(0, var(--ty), 0) rotateX(90deg); */
+  transform: translate3d(0, var(--ty), 0) rotateX(90deg);
 }
 
 figure {

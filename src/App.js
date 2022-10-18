@@ -1,12 +1,7 @@
 import Model3d from "./components/Model3d/Model3d";
 
 function App() {
-  return (
-      <div>
-          <nav></nav>
-          <Model3d />
-      </div>
-  );
+  return <Model3d />;
 }
 
 export default App;
