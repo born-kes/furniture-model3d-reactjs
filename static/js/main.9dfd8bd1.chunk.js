@@ -1,2 +1,0 @@
-(this["webpackJsonpfurniture-model3d-reactjs"]=this["webpackJsonpfurniture-model3d-reactjs"]||[]).push([[0],{10:function(e,n,t){},4:function(e,n,t){"use strict";t.r(n);var o=t(2),c=(t(1),t(3)),d=t.n(c);t(10);console.log(document.getElementById("view_model")),console.log(Object(o.jsx)("div",{children:"HR"})),d.a.render(Object(o.jsx)("div",{children:"HR"}),document.getElementById("view_model"))}},[[4,1,2]]]);
-//# sourceMappingURL=main.9dfd8bd1.chunk.js.map
