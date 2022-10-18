@@ -1,17 +1,17 @@
 {
-  "name": "-furniture-model3d-reactjs",
+  "name": "furniture-model3d-reactjs",
   "version": "0.1.0",
-  "description": "3d model of furniture", 
+  "description": "3d model of furniture",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/born-kes/-furniture-model3d-reactjs.git"
+    "url": "git+https://github.com/born-kes/furniture-model3d-reactjs.git"
   },
   "author": "Born-kes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/born-kes/-furniture-model3d-reactjs/issues"
+    "url": "https://github.com/born-kes/furniture-model3d-reactjs/issues"
   },
-  "home-page": "https://github.com/born-kes/-furniture-model3d-reactjs#readme",
+  "home-page": "https://github.com/born-kes/furniture-model3d-reactjs#readme",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",

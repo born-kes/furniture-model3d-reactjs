@@ -1,36 +1,45 @@
 figure {
-    --tx:0;
-    --ty:0;
-    --tz:0;
+  --tx: 0;
+  --ty: 0;
+  --tz: 0;
 }
 figure,
-.FigureBox
-{
-    position: absolute;
-    margin: 0;
-    width: 100%;
-    min-width: 1px;
-    height: 100%;
-    min-height: 1px;
+.FigureBox {
+  position: absolute;
+  margin: 0;
+  min-width: 1px;
+  height: 100%;
+  min-height: 1px;
 }
-figure.up {  transform: translate3d(0, 0, calc(var(--size-el)*.5)); }
-figure.down {  transform: translate3d(0, 0, calc(var(--size-el)*-.5)); }
-figure.left, figure.right { width: var(--size-el); transform: translate3d(var(--tx), 0, 0) rotateY(90deg); }
-figure.top, figure.bottom { height: var(--size-el); transform: translate3d(0, var(--ty), 0) rotateX(90deg); }
+figure.up {
+  /* transform: translate3d(0, 0, calc(var(--size-el) * 0.5)); */
+}
+figure.down {
+  /* transform: translate3d(0, 0, calc(var(--size-el) * -0.5)); */
+}
+figure.left,
+figure.right {
+  /* width: var(--size-el); */
+  /* transform: translate3d(var(--tx), 0, 0) rotateY(90deg); */
+}
+figure.top,
+figure.bottom {
+  height: var(--size-el);
+  /* transform: translate3d(0, var(--ty), 0) rotateX(90deg); */
+}
 
-
-figure {  background-color: #e7f5e2; }
+figure {
+  background-color: #e7f5e2;
+}
 .backgroundImg {
-    background-repeat: repeat;
-    background-size: 900px 900px;
+  background-repeat: repeat;
+  background-size: 900px 900px;
 }
-
 figure,
 figure.top,
 figure.bottom,
 figure.right,
-figure.left
-{
-    background-color: #dddddd;
-    box-shadow: inset 5px 5px 20px #182019;
+figure.left {
+  background-color: #dddddd;
+  box-shadow: inset 5px 5px 20px #182019;
 }

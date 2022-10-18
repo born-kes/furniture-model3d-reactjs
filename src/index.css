@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -7,15 +9,14 @@
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 /*#view_model{
@@ -25,7 +26,7 @@ code {
   transform-style: preserve-3d;
   width: 800px;
 }*/
-#view_model>div {
+#view_model > div {
   -webkit-perspective: 1200px;
   -webkit-perspective-origin: 50% 50%;
   -webkit-transform-style: preserve-3d;
@@ -43,4 +44,5 @@ code {
   top: 50px;
   overflow: hidden;
   -webkit-transition: -webkit-perspective 2s linear;
+  transition: perspective 2s linear;
 }
