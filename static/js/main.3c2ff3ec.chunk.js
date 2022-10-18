@@ -1,2 +1,0 @@
-(this["webpackJsonpfurniture-model3d-reactjs"]=this["webpackJsonpfurniture-model3d-reactjs"]||[]).push([[0],{10:function(e,n,t){"use strict";t.r(n);var c=t(0),o=(t(2),t(3)),r=t.n(o);var d=function(){return Object(c.jsxs)("div",{children:[Object(c.jsx)("h1",{children:"hello Word!"}),Object(c.jsx)("nav",{})]})};t(9);console.log(document.getElementById("view_model")),console.log(Object(c.jsx)("div",{children:"HR"})),r.a.render(Object(c.jsx)(d,{}),document.getElementById("view_model"))},9:function(e,n,t){}},[[10,1,2]]]);
-//# sourceMappingURL=main.3c2ff3ec.chunk.js.map
