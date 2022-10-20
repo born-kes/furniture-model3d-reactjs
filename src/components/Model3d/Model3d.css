@@ -3,11 +3,11 @@
   --ty: 0; /* translation y - down */
   --tz: 0; /* translation z - front */
   --furniture--x: 400px;
-  --furniture--y: 800px;
+  --furniture--y: 100px;
   --furniture--z: 200px;
   --size-el: 9px;
 }
-#model3d,
+.model3d,
 .furniture,
 .FigureBox {
   transform-style: preserve-3d;
@@ -15,35 +15,18 @@
   transform-origin: center;
   -webkit-transform-origin: center;
 }
-#model3d {
-  position: relative;
-  height: 550px;
-  /*width: 800px;*/
+.model3d {
   outline: 1px solid green;
   transform: rotateX(0deg) rotateY(0deg);
   -webkit-transform: rotateX(0deg) rotateY(0deg);
 }
 .model3d-content {
   position: relative;
-  left: 50%;
-  top: 25%;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
 }
-.furniture {
-  transform: scale3D(0.4, 0.4, 0.4)
-    translate3d(
-      calc(var(--furniture--x) * -1),
-      -50%,
-      calc(var(--furniture--z) * -1)
-    );
-  -webkit-transform: scale3D(0.4, 0.4, 0.4)
-    translate3d(
-      calc(var(--furniture--x) * -1),
-      -50%,
-      calc(var(--furniture--z) * -1)
-    );
 
-  /* outline: 1px solid blue; */
-}
 .formatka {
   position: absolute;
   outline: 1px solid blue;

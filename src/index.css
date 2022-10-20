@@ -19,30 +19,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/*#view_model{
-  height: 650px;
-  perspective: 1200px;
-  position: relative;
-  transform-style: preserve-3d;
-  width: 800px;
-}*/
-#view_model > div {
-  -webkit-perspective: 1200px;
-  -webkit-perspective-origin: 50% 50%;
-  -webkit-transform-style: preserve-3d;
-  perspective: 1200px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  position: relative;
-  width: 800px;
-  height: 650px;
-}
 #view_model {
   width: 80vw;
+  height: 80vh;
+  position: relative;
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+#view_model > div {
+  position: absolute;
+  bottom: 0;
+}
+#view_model {
   margin-left: auto;
   margin-right: auto;
   top: 50px;
-  overflow: hidden;
   -webkit-transition: -webkit-perspective 2s linear;
   transition: perspective 2s linear;
 }
