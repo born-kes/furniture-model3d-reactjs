@@ -1,0 +1,66 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    transition: all 2s ease-in-out;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#view_model {
+    width: 80vw;
+    height: 70vh;
+    position: relative;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: green;*/
+    perspective: 800px;
+    perspective-origin: 150% 150%;
+}
+
+.modelBox {
+    perspective: 1200px;
+    -webkit-perspective: 1200px;
+}
+
+#view_model,
+.modelBox {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+#view_model {
+    transition: perspective 2s linear;
+    -webkit-transition: -webkit-perspective 2s linear;
+}
+#view_model,
+#view_model > .modelBox {
+    margin: 20px auto;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+#view_model > .modelBox {
+    padding-top: 25px;
+    height: 90%;
+    width: 90%;
+    /*transform: rotateX(20deg) rotateY(-20deg) scale(0.5) translateZ(59px);*/
+}

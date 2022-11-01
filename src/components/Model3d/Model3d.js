@@ -14,11 +14,11 @@ const Model3d = () => {
     x: "700",
     y: "300",
     z: "500",
-    dagx: "-20deg",
-    dagy: "-20deg",
+    dagx: "-2deg",
+    dagy: "-2deg",
   });
   const model3d = {
-    transform: `rotateX(${dimensions.dagx}) rotateY(${dimensions.dagy}) scale(0.5)`,
+    transform: `rotateX(${dimensions.dagx}) rotateY(${dimensions.dagy}) `,
     transition: "all 1s ease-in-out",
     "--furniture--x": `${dimensions.x}px`,
     "--furniture--y": `${dimensions.y}px`,
