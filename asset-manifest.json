@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/furniture-model3d-reactjs/static/css/main.9bf15bf9.chunk.css",
-    "main.js": "/furniture-model3d-reactjs/static/js/main.a6b4a171.chunk.js",
-    "main.js.map": "/furniture-model3d-reactjs/static/js/main.a6b4a171.chunk.js.map",
+    "main.css": "/furniture-model3d-reactjs/static/css/main.184aee92.chunk.css",
+    "main.js": "/furniture-model3d-reactjs/static/js/main.57afc121.chunk.js",
+    "main.js.map": "/furniture-model3d-reactjs/static/js/main.57afc121.chunk.js.map",
     "runtime-main.js": "/furniture-model3d-reactjs/static/js/runtime-main.53699d46.js",
     "runtime-main.js.map": "/furniture-model3d-reactjs/static/js/runtime-main.53699d46.js.map",
     "static/js/2.12eb7327.chunk.js": "/furniture-model3d-reactjs/static/js/2.12eb7327.chunk.js",
     "static/js/2.12eb7327.chunk.js.map": "/furniture-model3d-reactjs/static/js/2.12eb7327.chunk.js.map",
     "index.html": "/furniture-model3d-reactjs/index.html",
-    "static/css/main.9bf15bf9.chunk.css.map": "/furniture-model3d-reactjs/static/css/main.9bf15bf9.chunk.css.map",
+    "static/css/main.184aee92.chunk.css.map": "/furniture-model3d-reactjs/static/css/main.184aee92.chunk.css.map",
     "static/js/2.12eb7327.chunk.js.LICENSE.txt": "/furniture-model3d-reactjs/static/js/2.12eb7327.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.53699d46.js",
     "static/js/2.12eb7327.chunk.js",
-    "static/css/main.9bf15bf9.chunk.css",
-    "static/js/main.a6b4a171.chunk.js"
+    "static/css/main.184aee92.chunk.css",
+    "static/js/main.57afc121.chunk.js"
   ]
 }
