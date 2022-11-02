@@ -1,13 +1,21 @@
+:root {
+--furniture--x: 0px;
+--furniture--y: 0px;
+--furniture--z: 0px;
+}
+
 .model3d-content {
+  height: var(--furniture--y);
   background: linear-gradient(skyblue, khaki);
   perspective: 1200px;
   perspective-origin: 150% 150%;
 }
 .model3d {
-  height: 300px;
+  height: var(--furniture--y);
   /*overflow: hidden;*/
-  position: relative;
+  bottom: 0px;
+  position: absolute;
   /*background-color: forestgreen;*/
   /*overflow: hidden;*/
-  padding: 1em;
+  transform: scale3d(0.5, 0.5, 0.5) translateX(-50%) translateY(50%);
 }

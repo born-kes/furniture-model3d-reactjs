@@ -34,11 +34,13 @@ code {
     /*background-color: green;*/
     perspective: 800px;
     perspective-origin: 150% 150%;
+    border: 1px solid;
 }
 
 .modelBox {
     perspective: 1200px;
     -webkit-perspective: 1200px;
+    border: 1px dashed forestgreen;
 }
 
 #view_model,
@@ -62,5 +64,6 @@ code {
     padding-top: 25px;
     height: 90%;
     width: 90%;
+    border: 1px dashed;
     /*transform: rotateX(20deg) rotateY(-20deg) scale(0.5) translateZ(59px);*/
 }

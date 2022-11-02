@@ -20,7 +20,6 @@ figure {
     width: var(--figure--x);
     height: var(--figure--y);
     position: absolute;
-    transform: scale3d(0.4, 0.4, 0.4) translate3d(var(--figure--x), calc(var(--figure--y) * -0.5), calc(var(--figure--z) * -1));
     transform-style: preserve-3d;
     transform-origin: bottom;
 }
@@ -36,11 +35,12 @@ figure.front, figure.back {
 }
 
 figure.front {
-    --tz: calc(var(--figure--z) * 0.5);
+    --tz: var(--figure--z);
 }
 
-figure.back {
-    --tz: calc(var(--figure--z) * -0.5);
+figure.top, figure.bottom,
+figure.left, figure.right {
+    --tz: calc(var(--figure--z) * 0.5);
 }
 
 figure.top, figure.bottom {
