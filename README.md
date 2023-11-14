@@ -20,7 +20,6 @@ npm start
 
 ## Get Started Test
 
-```PowerShell
-    $ cd <furnite-model3d-reactjs folder>
-    $ npm run test
+```bash
+npm run test
 ```
