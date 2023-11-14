@@ -12,11 +12,10 @@
 
 Install node.js
 
-```PowerShell
-    $ cd <furnite-model3d-reactjs folder>
-    $ npm install -f
-    $ npm run build
-    $ npm start
+```bash
+npm install --save-dev
+npm run build
+npm start
 ```
 
 ## Get Started Test
