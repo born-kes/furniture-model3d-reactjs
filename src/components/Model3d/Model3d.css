@@ -1,21 +1,24 @@
 :root {
---furniture--x: 0px;
---furniture--y: 0px;
---furniture--z: 0px;
+    --furniture--width: 0px;
+    --furniture--height: 0px;
+    --furniture--size: 0px;
 }
 
 .model3d-content {
-  height: var(--furniture--y);
-  background: linear-gradient(skyblue, khaki);
-  perspective: 1200px;
-  perspective-origin: 150% 150%;
+    width: var(--furniture--width);
+    height: var(--furniture--height);
+    background: linear-gradient(skyblue, khaki);
+    perspective: 2100px;
+    perspective-origin: 50% 50%;
+    transform: scale3d(.5, .5, .5) translateX(-50%) translateY(-50%);
 }
+
 .model3d {
-  height: var(--furniture--y);
-  /*overflow: hidden;*/
-  bottom: 0px;
-  position: absolute;
-  /*background-color: forestgreen;*/
-  /*overflow: hidden;*/
-  transform: scale3d(0.5, 0.5, 0.5) translateX(-50%) translateY(50%);
+    /*bottom: 0px;*/
+    position: absolute;
+    transform: scale3d(.5, .5, .5) translateX(-50%) translateY(-50%);
+}
+
+#scene3d:hover {
+    perspective-origin: -150% 40%;
 }

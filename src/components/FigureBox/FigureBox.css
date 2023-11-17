@@ -1,70 +1,104 @@
-figure {
-    --tx: 0;
-    --ty: 0;
-    --tz: 0;
-    --deg-x: 0deg;
-    --deg-y: 0deg;
-    --deg-z: 0deg;
-    background: rgba(90, 90, 90, 0.7);
-    transform: translate3d(var(--tx), var(--ty), var(--tz)) rotateX(var(--deg-x)) rotateY(var(--deg-y)) rotateZ(var(--deg-z));
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    box-shadow: 2px 7px 25px #2c439f;
+
+.figureBox {
+    transform: rotateY(0deg) translateX(0);
+    transform-style: preserve-3d;
+    transition: transform 5.5s;
+    background: red;
 }
 
 .figureBox {
-    --figure--x: 300px;
-    --figure--y: 800px;
-    --figure--z: 100px;
-    width: var(--figure--x);
-    height: var(--figure--y);
+    --figure--size: 0px;
+    --figure--width: 0px;
+    --figure--height: 0px;
     position: absolute;
-    transform-style: preserve-3d;
-    transform-origin: bottom;
+    width: var(--figure--width);
+    height: var(--figure--height);
 }
 
 .figureBox.sidewall {
-    perspective: 550px;
-    background-color: red;
+    --translate-z: calc(var(--furniture--size) * -.5);
+    transform: rotateY(90deg) translateZ(var(--translate-z));
 }
 
-figure.front, figure.back {
-    width: var(--figure--x);
-    height: var(--figure--y);
+.figureBox.capture,
+.figureBox.shelves {
+    --translate-y: 10px;
+    --translate-z: calc(var(--furniture--size) * .5);
+    transform: rotateX(90deg) translateY(var(--translate-y)) translateZ(var(--translate-z));
+}
+
+.figureBox.shelves {
+    --translate-z: calc(var(--furniture--size) * .5 - 10px);
+}
+
+.figureBox.capture {
+    --translate-z: calc(var(--furniture--height) * -.5);
+}
+
+.figureBox.door {
+    --translate-x: 0;
+    --translate-z: calc(var(--furniture--size));
+    transform: translateX(var(--translate-x)) translateZ(var(--translate-z));
+}
+
+.figureBox.door:hover {
+    --translate-x: 0;
+    --translate-z: calc(var(--furniture--size));
+    transform: rotateY(90deg) translateX(var(--translate-x)) translateZ(var(--translate-z));
+}
+
+.figureBox.right {
+    --translate-z: calc(var(--furniture--width) - var(--furniture--size) * .5);
+}
+
+.figureBox.bottom {
+    --translate-z: calc(var(--furniture--height) * -1 + var(--furniture--size) * .5);
+}
+
+
+figure {
+    background: rgba(90, 90, 90, 0.7);
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
 }
 
 figure.front {
-    --tz: var(--figure--z);
+    --translate-z: calc(var(--figure--size));
+    transform: translateZ(var(--translate-z));
 }
 
-figure.top, figure.bottom,
-figure.left, figure.right {
-    --tz: calc(var(--figure--z) * 0.5);
+figure.back {
+    transform: translateZ(0);
 }
 
-figure.top, figure.bottom {
-    width: var(--figure--x);
-    height: var(--figure--z);
-    --ty: calc(var(--figure--z) * -0.5);
-    --deg-x: 90deg;
+figure.top {
+    height: var(--figure--size);
+    --translate-y: calc(var(--figure--size) * .5);
+    --translate-z: calc(var(--figure--size) * .5);
+    transform: rotateX(90deg) translateY(var(--translate-y)) translateZ(var(--translate-z));
 }
 
 figure.bottom {
-    --ty: calc(var(--figure--z) * -0.5 + var(--figure--y));
-}
-
-figure.left, figure.right {
-    width: var(--figure--z);
-    height: var(--figure--y);
-    --deg-y: -90deg;
-    --tx: calc(var(--figure--z) * -0.5);
+    height: var(--figure--size);
+    --translate-y: calc(var(--figure--size) * -.5);
+    --translate-z: calc(var(--figure--height) - var(--figure--size) * .5);
+    transform: rotateX(-90deg) translateY(var(--translate-y)) translateZ(var(--translate-z));
 }
 
 figure.left {
-    --tx: calc(var(--figure--z) * -0.5);
+    width: var(--figure--size);
+    --translate-x: calc(var(--figure--size) * .5);
+    --translate-y: calc(var(--figure--size) * .5);
+    transform: rotateY(-90deg) translateX(var(--translate-x)) translateZ(var(--translate-y));
 }
 
 figure.right {
-    --tx: calc(var(--figure--z) * -0.5 + var(--figure--x));
+    width: var(--figure--size);
+    --translate-x: calc(var(--figure--size) * -.5);
+    --translate-z: calc(var(--figure--width) - var(--figure--size) * .5);
+    transform: rotateY(90deg) translateX(var(--translate-x)) translateZ(var(--translate-z));
 }
