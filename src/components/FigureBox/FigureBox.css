@@ -28,11 +28,11 @@
 }
 
 .figureBox.shelves {
-    --translate-z: calc(var(--furniture--size) * .5 - 10px);
+    --translate-z: calc(var(--furniture--height) * -.5);
 }
 
 .figureBox.capture {
-    --translate-z: calc(var(--furniture--height) * -.5);
+    --translate-z: calc(var(--furniture--size) * .5 - 10px);
 }
 
 .figureBox.door {
