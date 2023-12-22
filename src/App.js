@@ -1,9 +1,12 @@
+import {DataProvider} from "./Data/Context";
 import Model3d from "./components/Model3d/Model3d";
 
 function App() {
-    return <div className="modelBox">
-        <Model3d/>
-    </div>;
+    return (
+        <DataProvider>
+            <Model3d/>
+        </DataProvider>
+    );
 }
 
 export default App;
