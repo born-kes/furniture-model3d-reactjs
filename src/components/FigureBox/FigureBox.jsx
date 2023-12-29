@@ -4,10 +4,11 @@ import "./FigureBox.css";
 const FigureBox = ({className, figure: {size, width, height}}) => {
     const _ClassName = ["figureBox", className].join(" ");
     const dimensions = {
-        "--figure--size": `${size | 0}px`,
-        "--figure--width": `${width | 0}px`,
-        "--figure--height": `${height | 0}px`,
+        "--figure--size": `var(${size})`,
+        "--figure--width": `var(${width})`,
+        "--figure--height": `var(${height})`
     }
+    console.log(dimensions)
     return (
         <div className={_ClassName} style={dimensions}>
             <figure className={"front"}/>
