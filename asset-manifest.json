@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/furniture-model3d-reactjs/static/css/main.4a099bcf.css",
-    "main.js": "/furniture-model3d-reactjs/static/js/main.45f8321f.js",
+    "main.js": "/furniture-model3d-reactjs/static/js/main.fefa2107.js",
     "index.html": "/furniture-model3d-reactjs/index.html",
     "main.4a099bcf.css.map": "/furniture-model3d-reactjs/static/css/main.4a099bcf.css.map",
-    "main.45f8321f.js.map": "/furniture-model3d-reactjs/static/js/main.45f8321f.js.map"
+    "main.fefa2107.js.map": "/furniture-model3d-reactjs/static/js/main.fefa2107.js.map"
   },
   "entrypoints": [
     "static/css/main.4a099bcf.css",
-    "static/js/main.45f8321f.js"
+    "static/js/main.fefa2107.js"
   ]
 }
